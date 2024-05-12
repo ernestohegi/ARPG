@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cw0jkmf5ddvbb"]
+
+[node name="PolygonalBoundaries" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 1, 0, 179, 321, 180, 320, 1, 307, 12, 306, 38, 297, 51, 278, 53, 305, 85, 297, 99, 312, 130, 296, 160, 288, 153, 251, 166, 209, 155, 182, 167, 153, 149, 122, 150, 100, 168, 46, 168, 21, 155, 31, 122, 10, 108, 22, 74, 6, 55, 15, 35, 4, 24, 43, 5, 65, 16, 78, 10, 99, 20, 106, 6, 217, 6, 228, 29, 259, 6, 294, 5, 321, 1)
