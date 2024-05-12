@@ -4,7 +4,6 @@ const SPEED = 100.0
 const DECELERATION = SPEED/8
 const ACCELERATION = SPEED/2
 
-@onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get('parameters/playback')
 
@@ -26,7 +25,6 @@ func _physics_process(_delta):
 		animation_tree.set('parameters/Idle/blend_position', vector)
 		animation_state.travel('Run')
 	else:
-		
 		animation_state.travel('Idle')
 	
 	move_and_slide()

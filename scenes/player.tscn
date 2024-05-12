@@ -240,6 +240,7 @@ states/Run/node = SubResource("AnimationNodeBlendSpace2D_5jafe")
 states/Run/position = Vector2(580, 204)
 states/Start/position = Vector2(207, 100)
 transitions = ["Run", "Idle", SubResource("AnimationNodeStateMachineTransition_rq5ti"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_t8fh5"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_317s7"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_51bq8")]
+graph_offset = Vector2(-336, -31)
 
 [node name="MainCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
