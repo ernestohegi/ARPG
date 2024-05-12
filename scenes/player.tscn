@@ -185,14 +185,14 @@ animation = &"idle_up"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7m3py"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_xk6kc")
-blend_point_0/pos = Vector2(-1, 0)
+blend_point_0/pos = Vector2(-1.1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_lq770")
 blend_point_1/pos = Vector2(0, 1.1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_ggb11")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_8xllk")
 blend_point_3/pos = Vector2(0, -1.1)
-min_space = Vector2(-1, -1.1)
+min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
