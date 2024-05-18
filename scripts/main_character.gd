@@ -37,6 +37,7 @@ func move():
 	velocity.y = move_toward(velocity.y, SPEED * vector.y, ACCELERATION) if verticalDirection else move_toward(velocity.y, 0, DECELERATION)
 
 	if vector != Vector2.ZERO:
+		animation_tree.set('parameters/Attack/TimeScale/scale', 20.0)
 		animation_tree.set('parameters/Run/blend_position', vector)
 		animation_tree.set('parameters/Idle/blend_position', vector)
 		animation_tree.set('parameters/Attack/blend_position', vector)

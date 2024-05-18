@@ -1038,3 +1038,24 @@ position = Vector2(1, 113)
 
 [node name="Grass8" parent="Grass" instance=ExtResource("6_u4kfk")]
 position = Vector2(33, 97)
+
+[node name="Grass9" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(25, 105)
+
+[node name="Grass12" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(209, 49)
+
+[node name="Grass13" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(209, 49)
+
+[node name="Grass10" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(1, 113)
+
+[node name="Grass11" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(209, 65)
+
+[node name="Grass14" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(219, 58)
+
+[node name="Grass15" parent="Grass" instance=ExtResource("6_u4kfk")]
+position = Vector2(185, 131)
