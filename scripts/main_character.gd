@@ -14,7 +14,7 @@ enum {
 
 var state = MOVE
 var move_vector = Vector2.ZERO;
-var roll_vector = Vector2.DOWN;
+var roll_vector = Vector2.ZERO;
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get('parameters/playback')
@@ -71,7 +71,7 @@ func roll():
 	move_and_slide()
 
 func run():
-	velocity = roll_vector * RUN_SPEED
+	velocity = move_vector * RUN_SPEED
 	animation_state.travel('Run')
 	
 func idle():
