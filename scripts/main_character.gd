@@ -1,15 +1,20 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
-const DECELERATION = SPEED/8
-const ACCELERATION = SPEED/2
+const BASE_SPEED = 100.0
+const ROLL_SPEED = BASE_SPEED * 1.8
+const RUN_SPEED = BASE_SPEED * 1.2
+const DECELERATION = BASE_SPEED / 8
+const ACCELERATION = BASE_SPEED / 2
 
 enum {
 	MOVE,
-	ATTACK
+	ATTACK,
+	ROLL
 }
 
 var state = MOVE
+var move_vector = Vector2.ZERO;
+var roll_vector = Vector2.DOWN;
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get('parameters/playback')
@@ -23,36 +28,61 @@ func _physics_process(_delta):
 			move()
 		ATTACK:
 			attack()
+		ROLL:
+			roll()
 
 func move():
-	var vector = Vector2.ZERO;
 	var horizontalDirection = Input.get_axis("move_left", "move_right")
 	var verticalDirection = Input.get_axis("move_up", "move_down")
 	
-	vector.x = horizontalDirection
-	vector.y = verticalDirection
-	vector = vector.normalized() # Normalise diagonals speed
+	move_vector.x = horizontalDirection
+	move_vector.y = verticalDirection
+	move_vector = move_vector.normalized() # Normalise diagonals speed
 	
-	velocity.x = move_toward(velocity.x, SPEED * vector.x, ACCELERATION) if horizontalDirection else move_toward(velocity.x, 0, DECELERATION)
-	velocity.y = move_toward(velocity.y, SPEED * vector.y, ACCELERATION) if verticalDirection else move_toward(velocity.y, 0, DECELERATION)
+	velocity.x = move_toward(velocity.x, BASE_SPEED * move_vector.x, ACCELERATION) if horizontalDirection else move_toward(velocity.x, 0, DECELERATION)
+	velocity.y = move_toward(velocity.y, BASE_SPEED * move_vector.y, ACCELERATION) if verticalDirection else move_toward(velocity.y, 0, DECELERATION)
 
-	if vector != Vector2.ZERO:
+	if move_vector != Vector2.ZERO:
+		roll_vector = move_vector
 		animation_tree.set('parameters/Attack/TimeScale/scale', 20.0)
-		animation_tree.set('parameters/Run/blend_position', vector)
-		animation_tree.set('parameters/Idle/blend_position', vector)
-		animation_tree.set('parameters/Attack/blend_position', vector)
-		animation_state.travel('Run')
+		animation_tree.set('parameters/Run/blend_position', move_vector)
+		animation_tree.set('parameters/Idle/blend_position', move_vector)
+		animation_tree.set('parameters/Attack/blend_position', move_vector)
+		animation_tree.set('parameters/Roll/blend_position', move_vector)
+		run()
 	else:
-		animation_state.travel('Idle')
+		idle()
 
 	move_and_slide()
 
 	if (Input.is_action_just_pressed('attack')):
 		state = ATTACK
+		
+	if (Input.is_action_just_pressed('roll')):
+		state = ROLL
 
 func attack():
 	velocity = Vector2.ZERO
 	animation_state.travel('Attack')
 
-func attack_animation_finished():
+func roll():
+	velocity = roll_vector * ROLL_SPEED
+	animation_state.travel('Roll')
+	move_and_slide()
+
+func run():
+	velocity = roll_vector * RUN_SPEED
+	animation_state.travel('Run')
+	
+func idle():
+	animation_state.travel('Idle')
+
+func reset_animation_state():
 	state = MOVE
+
+func roll_animation_finished():
+	velocity = Vector2.ZERO
+	reset_animation_state()
+
+func attack_animation_finished():
+	reset_animation_state()
