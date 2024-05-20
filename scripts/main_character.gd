@@ -18,9 +18,11 @@ var roll_vector = Vector2.ZERO;
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get('parameters/playback')
+@onready var sword_hitbox = $HitboxPivot/SwordHitbox
 
 func _ready():
 	animation_tree.active = true
+	sword_hitbox.knockback_vector = move_vector
 
 func _physics_process(_delta):
 	match state:
@@ -38,13 +40,13 @@ func move():
 	move_vector.x = horizontalDirection
 	move_vector.y = verticalDirection
 	move_vector = move_vector.normalized() # Normalise diagonals speed
-	
+
 	velocity.x = move_toward(velocity.x, BASE_SPEED * move_vector.x, ACCELERATION) if horizontalDirection else move_toward(velocity.x, 0, DECELERATION)
 	velocity.y = move_toward(velocity.y, BASE_SPEED * move_vector.y, ACCELERATION) if verticalDirection else move_toward(velocity.y, 0, DECELERATION)
 
 	if move_vector != Vector2.ZERO:
 		roll_vector = move_vector
-		animation_tree.set('parameters/Attack/TimeScale/scale', 20.0)
+		sword_hitbox.knockback_vector = move_vector
 		animation_tree.set('parameters/Run/blend_position', move_vector)
 		animation_tree.set('parameters/Idle/blend_position', move_vector)
 		animation_tree.set('parameters/Attack/blend_position', move_vector)
