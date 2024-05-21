@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-const BASE_SPEED = 100.0
-const ROLL_SPEED = BASE_SPEED * 1.8
-const RUN_SPEED = BASE_SPEED * 1.2
-const DECELERATION = BASE_SPEED / 8
-const ACCELERATION = BASE_SPEED / 2
+@export var BASE_SPEED = 100.0
+@export var ROLL_SPEED = BASE_SPEED * 1.8
+@export var RUN_SPEED = BASE_SPEED * 1.2
+@export var DECELERATION = BASE_SPEED / 8
+@export var ACCELERATION = BASE_SPEED / 2
 
 enum {
 	MOVE,
