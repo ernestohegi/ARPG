@@ -13,6 +13,6 @@ func add_grass_animation():
 	main_scene.add_child(grass_effect)
 	grass_effect.global_position = global_position
 
-func _on_hurtbox_area_entered(area):
+func _on_hurtbox_area_entered(_area):
 	add_grass_animation()
 	queue_free()
