@@ -59,7 +59,7 @@ radius = 8.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2ctm"]
-radius = 43.0
+radius = 58.0345
 
 [node name="EnemyBat" type="CharacterBody2D"]
 y_sort_enabled = true

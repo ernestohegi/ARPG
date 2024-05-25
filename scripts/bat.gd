@@ -39,6 +39,11 @@ func _physics_process(delta):
 			if player != null:
 				var player_direction = player.global_position - global_position  # Should normalize the direction here
 				velocity = velocity.move_toward(player_direction, 200)
+				
+				#var player = playerDetectionZone.player
+				#if player != null:
+					#var direction = position.direction_to(player.global_position)
+					#velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION)
 			pass
 			
 	move_and_slide()
