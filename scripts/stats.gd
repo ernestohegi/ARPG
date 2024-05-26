@@ -9,7 +9,5 @@ signal no_health
 		return health
 	set(value):
 		health = value
-		
 		if health <= 0:
 			emit_signal('no_health')
-		

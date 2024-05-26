@@ -54,10 +54,9 @@ func move():
 		animation_tree.set('parameters/Attack/blend_position', move_vector)
 		animation_tree.set('parameters/Roll/blend_position', move_vector)
 		run()
+		move_and_slide()
 	else:
 		idle()
-
-	move_and_slide()
 
 	if (Input.is_action_just_pressed('attack')):
 		state = ATTACK

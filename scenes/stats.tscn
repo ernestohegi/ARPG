@@ -4,3 +4,4 @@
 
 [node name="Stats" type="Node"]
 script = ExtResource("1_bg4os")
+max_health = 4

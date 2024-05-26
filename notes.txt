@@ -1,1 +1,1 @@
-- Fix player pushback when enemies hit.
+- Fix player pushback when enemies hit. (Done, fixed by moving move_and_slide() within vector movement)
