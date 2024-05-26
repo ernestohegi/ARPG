@@ -13,14 +13,16 @@ enum {
 }
 
 var state = MOVE
-var move_vector = Vector2.ZERO;
-var roll_vector = Vector2.ZERO;
+var move_vector = Vector2.ZERO
+var roll_vector = Vector2.ZERO
+var stats = PlayerStats
 
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get('parameters/playback')
 @onready var sword_hitbox = $HitboxPivot/SwordHitbox
 
 func _ready():
+	stats.connect('no_health', Callable(self, 'queue_free'))
 	animation_tree.active = true
 	sword_hitbox.knockback_vector = move_vector
 
@@ -88,3 +90,7 @@ func roll_animation_finished():
 
 func attack_animation_finished():
 	reset_animation_state()
+
+func _on_hurtbox_area_entered(area):
+	print('hurt')
+	stats.health -= 1
