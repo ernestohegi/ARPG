@@ -1,6 +1,6 @@
 [gd_scene load_steps=56 format=3 uid="uid://ch487rjw4ydt"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_skyhe"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_o0ckd"]
 [ext_resource type="Texture2D" uid="uid://cfy04lew88bke" path="res://assets/Player/Player.png" id="2_oghqv"]
 [ext_resource type="PackedScene" uid="uid://b6yol8jdwwvok" path="res://scenes/hitbox.tscn" id="3_sxxj3"]
 [ext_resource type="Script" path="res://scripts/sword_hitbox.gd" id="4_btme2"]
@@ -685,7 +685,7 @@ height = 18.0
 [node name="MainCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
-script = ExtResource("1_skyhe")
+script = ExtResource("1_o0ckd")
 ROLL_SPEED = 180.0
 RUN_SPEED = 120.0
 DECELERATION = 12.5
