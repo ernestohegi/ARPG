@@ -91,5 +91,4 @@ func attack_animation_finished():
 	reset_animation_state()
 
 func _on_hurtbox_area_entered(area):
-	print('hurt')
 	stats.health -= 1
