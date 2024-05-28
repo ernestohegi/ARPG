@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8ttwj8ac02nk"]
+[gd_scene load_steps=20 format=3 uid="uid://c8ttwj8ac02nk"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_k60bg"]
 [ext_resource type="Texture2D" uid="uid://dljys6qbcbl7d" path="res://assets/Enemies/Bat.png" id="1_png0f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://begsaou5owb5p" path="res://scenes/stats.tscn" id="5_v2ncj"]
 [ext_resource type="PackedScene" uid="uid://b1x8iwjtybcjt" path="res://scenes/player_detection_zone.tscn" id="6_kpirg"]
 [ext_resource type="PackedScene" uid="uid://b6yol8jdwwvok" path="res://scenes/hitbox.tscn" id="7_dbqlk"]
+[ext_resource type="PackedScene" uid="uid://ce5upt4d2aova" path="res://scenes/soft_collision.tscn" id="8_ras8s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arhpd"]
 atlas = ExtResource("1_png0f")
@@ -66,6 +67,9 @@ radius = 58.0345
 radius = 9.0
 height = 18.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxvio"]
+radius = 7.0
+
 [node name="EnemyBat" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_mask = 9
@@ -109,9 +113,16 @@ position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_q5s6m")
 debug_color = Color(0, 0.623444, 0.537594, 0.42)
 
+[node name="SoftCollision" parent="." instance=ExtResource("8_ras8s")]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+shape = SubResource("CircleShape2D_pxvio")
+debug_color = Color(0.370754, 0.48839, 0.970024, 0.42)
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
 [editable path="Hitbox"]
+[editable path="SoftCollision"]

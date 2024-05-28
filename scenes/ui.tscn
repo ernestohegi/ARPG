@@ -4,20 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://bufbx3p7qsvn4" path="res://assets/UI/HeartUIEmpty.png" id="2_fn4vq"]
 [ext_resource type="Texture2D" uid="uid://cx4iyx8q7bflh" path="res://assets/UI/HeartUIFull.png" id="3_jlyv0"]
 
-[node name="UI" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="UI" type="CanvasLayer"]
 script = ExtResource("1_70kyo")
 
-[node name="EmptyHearts" type="TextureRect" parent="."]
-offset_right = 88.0
-offset_bottom = 11.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = -1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 92.0
+offset_bottom = 13.0
+
+[node name="EmptyHearts" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 texture = ExtResource("2_fn4vq")
 stretch_mode = 1
 
-[node name="FullHearts" type="TextureRect" parent="."]
-offset_right = 90.0
-offset_bottom = 11.0
+[node name="FullHearts" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 texture = ExtResource("3_jlyv0")
 expand_mode = 1
 stretch_mode = 1

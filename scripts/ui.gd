@@ -1,7 +1,7 @@
 extends Node
 
-@onready var empty_hearts = $EmptyHearts
-@onready var full_hearts = $FullHearts
+@onready var empty_hearts = %EmptyHearts
+@onready var full_hearts = %FullHearts
 
 const TEXTURE_PIXELS = 15
 
