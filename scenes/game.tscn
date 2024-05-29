@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcwah8bibf523"]
+[gd_scene load_steps=16 format=3 uid="uid://bcwah8bibf523"]
 
-[ext_resource type="PackedScene" uid="uid://ch487rjw4ydt" path="res://scenes/player.tscn" id="1_v71x1"]
-[ext_resource type="Texture2D" uid="uid://db21w6d26764a" path="res://assets/World/DirtTileset.png" id="2_3nnjs"]
-[ext_resource type="PackedScene" uid="uid://b1jc1kmhrwk5x" path="res://scenes/bush.tscn" id="3_03u40"]
-[ext_resource type="Texture2D" uid="uid://dgvwytw80pg5o" path="res://assets/World/CliffTileset.png" id="3_rci0c"]
-[ext_resource type="Texture2D" uid="uid://cvkdsda8s8niy" path="res://assets/World/GrassBackground.png" id="4_r00a8"]
-[ext_resource type="PackedScene" uid="uid://dy7cnodt2vg4q" path="res://scenes/grass.tscn" id="6_u4kfk"]
-[ext_resource type="PackedScene" uid="uid://c8ttwj8ac02nk" path="res://scenes/bat.tscn" id="7_4r5sq"]
-[ext_resource type="PackedScene" uid="uid://fjuoi8ndjy1g" path="res://scenes/ui.tscn" id="8_gov0g"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_0wmpy"]
+[ext_resource type="Texture2D" uid="uid://cvkdsda8s8niy" path="res://assets/World/GrassBackground.png" id="2_sv5nw"]
+[ext_resource type="Texture2D" uid="uid://db21w6d26764a" path="res://assets/World/DirtTileset.png" id="3_l1w1o"]
+[ext_resource type="Texture2D" uid="uid://dgvwytw80pg5o" path="res://assets/World/CliffTileset.png" id="4_45gr7"]
+[ext_resource type="PackedScene" uid="uid://b1jc1kmhrwk5x" path="res://scenes/bush.tscn" id="5_i5b4i"]
+[ext_resource type="PackedScene" uid="uid://ch487rjw4ydt" path="res://scenes/player.tscn" id="6_8m0uw"]
+[ext_resource type="PackedScene" uid="uid://dy7cnodt2vg4q" path="res://scenes/grass.tscn" id="7_yivuy"]
+[ext_resource type="PackedScene" uid="uid://c8ttwj8ac02nk" path="res://scenes/bat.tscn" id="8_tmnbu"]
+[ext_resource type="PackedScene" uid="uid://fjuoi8ndjy1g" path="res://scenes/ui.tscn" id="9_6g8cv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r0vw"]
-texture = ExtResource("4_r00a8")
+texture = ExtResource("2_sv5nw")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -61,7 +62,7 @@ texture = ExtResource("4_r00a8")
 3:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvk1v"]
-texture = ExtResource("2_3nnjs")
+texture = ExtResource("3_l1w1o")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -494,7 +495,7 @@ sources/2 = SubResource("TileSetAtlasSource_dvk1v")
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7y0cu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km0rx"]
-texture = ExtResource("3_rci0c")
+texture = ExtResource("4_45gr7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -964,6 +965,7 @@ sources/0 = SubResource("TileSetAtlasSource_km0rx")
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(-1, -1)
+script = ExtResource("1_0wmpy")
 
 [node name="Environment" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -987,95 +989,104 @@ layer_0/tile_data = PackedInt32Array(196607, 0, 2, 131071, 0, 1, 65536, 131072, 
 [node name="Bushes" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Bush" parent="Bushes" instance=ExtResource("3_03u40")]
+[node name="Bush" parent="Bushes" instance=ExtResource("5_i5b4i")]
 y_sort_enabled = true
 position = Vector2(15, 18)
 
-[node name="Bush2" parent="Bushes" instance=ExtResource("3_03u40")]
+[node name="Bush2" parent="Bushes" instance=ExtResource("5_i5b4i")]
 y_sort_enabled = true
 position = Vector2(78, 71)
 
-[node name="Bush3" parent="Bushes" instance=ExtResource("3_03u40")]
+[node name="Bush3" parent="Bushes" instance=ExtResource("5_i5b4i")]
 y_sort_enabled = true
 position = Vector2(189, 86)
 
-[node name="Bush4" parent="Bushes" instance=ExtResource("3_03u40")]
+[node name="Bush4" parent="Bushes" instance=ExtResource("5_i5b4i")]
 y_sort_enabled = true
 position = Vector2(296, 35)
 
-[node name="Bush5" parent="Bushes" instance=ExtResource("3_03u40")]
+[node name="Bush5" parent="Bushes" instance=ExtResource("5_i5b4i")]
 y_sort_enabled = true
 position = Vector2(295, 154)
 
-[node name="Bush6" parent="Bushes" instance=ExtResource("3_03u40")]
+[node name="Bush6" parent="Bushes" instance=ExtResource("5_i5b4i")]
 y_sort_enabled = true
 position = Vector2(270, 64)
 
 [node name="Players" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="MainCharacter" parent="Players" instance=ExtResource("1_v71x1")]
+[node name="MainCharacter" parent="Players" instance=ExtResource("6_8m0uw")]
 position = Vector2(153, 76)
 
 [node name="Camera2D" type="Camera2D" parent="Players/MainCharacter"]
 
 [node name="Grass" type="Node2D" parent="."]
 
-[node name="Grass" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(241, 113)
 
-[node name="Grass2" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass2" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(73, 41)
 
-[node name="Grass3" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass3" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(97, 137)
 
-[node name="Grass4" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass4" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(201, 41)
 
-[node name="Grass5" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass5" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(33, 113)
 
-[node name="Grass6" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass6" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(17, 113)
 
-[node name="Grass7" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass7" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(1, 113)
 
-[node name="Grass8" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass8" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(33, 97)
 
-[node name="Grass9" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass9" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(25, 105)
 
-[node name="Grass12" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass12" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(209, 49)
 
-[node name="Grass13" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass13" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(209, 49)
 
-[node name="Grass10" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass10" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(1, 113)
 
-[node name="Grass11" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass11" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(209, 65)
 
-[node name="Grass14" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass14" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(219, 58)
 
-[node name="Grass15" parent="Grass" instance=ExtResource("6_u4kfk")]
+[node name="Grass15" parent="Grass" instance=ExtResource("7_yivuy")]
 position = Vector2(185, 131)
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="EnemyBat" parent="Enemies" instance=ExtResource("7_4r5sq")]
+[node name="EnemyBat" parent="Enemies" instance=ExtResource("8_tmnbu")]
 position = Vector2(49, 70)
 
-[node name="EnemyBat2" parent="Enemies" instance=ExtResource("7_4r5sq")]
+[node name="EnemyBat2" parent="Enemies" instance=ExtResource("8_tmnbu")]
 position = Vector2(229, 143)
 
-[node name="EnemyBat3" parent="Enemies" instance=ExtResource("7_4r5sq")]
+[node name="EnemyBat3" parent="Enemies" instance=ExtResource("8_tmnbu")]
 position = Vector2(181, 24)
 
-[node name="UI" parent="." instance=ExtResource("8_gov0g")]
+[node name="EnemyBat4" parent="Enemies" instance=ExtResource("8_tmnbu")]
+position = Vector2(342, 54)
+
+[node name="EnemyBat5" parent="Enemies" instance=ExtResource("8_tmnbu")]
+position = Vector2(2, 160)
+
+[node name="EnemyBat6" parent="Enemies" instance=ExtResource("8_tmnbu")]
+position = Vector2(120, 21)
+
+[node name="UI" parent="." instance=ExtResource("9_6g8cv")]
