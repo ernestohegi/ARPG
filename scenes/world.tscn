@@ -1078,18 +1078,4 @@ position = Vector2(229, 143)
 [node name="EnemyBat3" parent="Enemies" instance=ExtResource("7_4r5sq")]
 position = Vector2(181, 24)
 
-[node name="EnemyBat4" parent="Enemies" instance=ExtResource("7_4r5sq")]
-position = Vector2(38, 87)
-
-[node name="EnemyBat5" parent="Enemies" instance=ExtResource("7_4r5sq")]
-position = Vector2(74, 101)
-
-[node name="EnemyBat6" parent="Enemies" instance=ExtResource("7_4r5sq")]
-position = Vector2(264, 60)
-
 [node name="UI" parent="." instance=ExtResource("8_gov0g")]
-z_index = 10
-offset_left = 7.0
-offset_top = 5.0
-offset_right = 7.0
-offset_bottom = 5.0

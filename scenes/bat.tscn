@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8ttwj8ac02nk"]
+[gd_scene load_steps=21 format=3 uid="uid://c8ttwj8ac02nk"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_k60bg"]
 [ext_resource type="Texture2D" uid="uid://dljys6qbcbl7d" path="res://assets/Enemies/Bat.png" id="1_png0f"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1x8iwjtybcjt" path="res://scenes/player_detection_zone.tscn" id="6_kpirg"]
 [ext_resource type="PackedScene" uid="uid://b6yol8jdwwvok" path="res://scenes/hitbox.tscn" id="7_dbqlk"]
 [ext_resource type="PackedScene" uid="uid://ce5upt4d2aova" path="res://scenes/soft_collision.tscn" id="8_ras8s"]
+[ext_resource type="PackedScene" uid="uid://cp2y53ds63i0p" path="res://scenes/wander_controller.tscn" id="9_1lhm3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arhpd"]
 atlas = ExtResource("1_png0f")
@@ -118,6 +119,8 @@ debug_color = Color(0, 0.623444, 0.537594, 0.42)
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 shape = SubResource("CircleShape2D_pxvio")
 debug_color = Color(0.370754, 0.48839, 0.970024, 0.42)
+
+[node name="WanderController" parent="." instance=ExtResource("9_1lhm3")]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]

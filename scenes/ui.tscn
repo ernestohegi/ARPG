@@ -9,7 +9,6 @@ script = ExtResource("1_70kyo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(10, 10)
-anchors_preset = -1
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 92.0
